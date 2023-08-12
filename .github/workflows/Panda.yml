@@ -1,9 +1,9 @@
-name: panda
+name: Panda build
 
 on:
   push:
     branches: [ main ]
-  pull:
+  pull_request:
     branches: [ main ]
 
   workflow_dispatch:
