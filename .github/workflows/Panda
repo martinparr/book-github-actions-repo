@@ -1,0 +1,28 @@
+name: panda
+
+on:
+  push:
+    branches: [ main ]
+  pull:
+    branches: [ main ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs_on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: use node.js
+    - uses: actions/setup-node@v3
+
+    - run: npm install
+
+    - run: gulp build
+
+    - uses: actions/upload-artifacts@v3
+      with:
+        name: mypackage
+        path: dest
